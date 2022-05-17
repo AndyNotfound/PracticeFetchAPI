@@ -1,5 +1,5 @@
 # PracticeRESTAPI
-This repository was created for practice purposes. This is my very first time fetching an API.
+This repository was created for practice purposes. This is my very first time fetching an <a href="https://animechan.vercel.app/">API</a>.
 
 ## Languages
 <ul>
