@@ -14,27 +14,27 @@ fetch('https://animechan.vercel.app/api/random')
       .catch((e) => console.log('Fetch Error:', e));
 
 function displayQuotes (quoteTaken){
-    // For the quotes tittle
-    const tittle = quoteTaken.anime;
-    const tittleDiv = document.getElementById('tittle');
+    //Destructuring the object passed
+    const {anime: tittle, character, quote: word} = quoteTaken;
+
+    // Anime tittle
     const tittleEl = document.createElement('h5');
     tittleEl.innerHTML = tittle;
-    tittleDiv.className="text-gray-900 text-xl leading-tight font-medium mb-4";
+    const tittleDiv = document.getElementById('tittle');
+    tittleDiv.className="text-black text-2xl leading-tight font-medium mb-4";
     tittleDiv.appendChild(tittleEl);
 
-    // For the quotes paragraph
-    const word = quoteTaken.quote;
-    const wordDiv = document.getElementById('someword');
+    // Quotes paragraph
     const paragraph = document.createElement('p');
     paragraph.innerHTML = word;
-    wordDiv.className="text-gray-700 text-base mb-4";
+    const wordDiv = document.getElementById('someword');
+    wordDiv.className="text-gray-700 text-black mb-4";
     wordDiv.appendChild(paragraph);
 
-    // For the quotes character
-    const character = quoteTaken.character;
-    const charDiv = document.getElementById('character');
+    // Character who said it
     const char = document.createElement('p');
-    char.innerHTML = character;
-    charDiv.className="text-gray-700 text-base mb-4";
-    charDiv.appendChild(character);
+    char.innerHTML = `~ ${character}`;
+    const charDiv = document.getElementById('character');
+    charDiv.className="text-gray-700 text-black";
+    charDiv.appendChild(char);
 };
