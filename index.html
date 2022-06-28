@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <title>API Fetch Practice</title>
 </head>
-<body class="bg-cover bg-center">
+<body class="bg-cover bg-center bg-0">
     <div class="flex justify-center items-center w-screen h-screen">
         <div class="block p-6 rounded shadow-lg bg-white/90 max-w-sm w-96 h-fit">
             <div id="tittle">
@@ -22,10 +22,9 @@
                 <div id="character">
                     <!--Inserted From API-->
                 </div>
-                <button type="button" 
-                        class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                        onClick="window.location.reload();">
-                        <!--Using window.location.reload to reload the browser for a new quotes-->
+                <button id="nextButton"
+                        type="button" 
+                        class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                     Next Quotes
                 </button>
             </div>
