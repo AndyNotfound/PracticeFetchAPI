@@ -59,8 +59,8 @@ function getRandomInt(max) {
 }
 
 button.addEventListener('click', () => {
-    const number = [1, 2, 3, 4, 5];
-    let randomNumber = getRandomInt(5);
+    const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    let randomNumber = getRandomInt(11);
     backgroudImage = `bg-${number[randomNumber]}`;
     number.forEach(num =>{
         if (body.classList.contains(`bg-${num}`)){
