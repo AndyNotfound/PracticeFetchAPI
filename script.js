@@ -1,3 +1,14 @@
+const tittleDiv = document.getElementById('tittle');
+const wordDiv = document.getElementById('someword');
+const charDiv = document.getElementById('character');
+const button = document.getElementById('nextButton');
+const body = document.body;
+let isQuoted = false;
+
+tittleDiv.className="text-black text-2xl leading-tight font-medium mb-4";
+wordDiv.className="text-gray-700 text-black mb-4";
+charDiv.className="text-gray-700 text-black";
+
 function requestApi() {
     fetch('https://animechan.vercel.app/api/random')
       .then((response) => {
@@ -20,33 +31,28 @@ function displayQuotes (quoteTaken){
     //Destructuring the object passed
     const {anime: tittle, character, quote: word} = quoteTaken;
 
-    
     const char = document.createElement('p');
     const paragraph = document.createElement('p');
     const tittleEl = document.createElement('h5');
 
     // Anime tittle
     tittleEl.innerHTML = tittle;
-    const tittleDiv = document.getElementById('tittle');
-    tittleDiv.className="text-black text-2xl leading-tight font-medium mb-4";
     tittleDiv.appendChild(tittleEl);
 
     // Quotes paragraph
     paragraph.innerHTML = word;
-    const wordDiv = document.getElementById('someword');
-    wordDiv.className="text-gray-700 text-black mb-4";
     wordDiv.appendChild(paragraph);
 
     // Character who said it
     char.innerHTML = `~ ${character}`;
-    const charDiv = document.getElementById('character');
-    charDiv.className="text-gray-700 text-black";
     charDiv.appendChild(char);
 };
 
-
-const button = document.getElementById('nextButton');
-const body = document.body;
+function removeQuotes (){
+    tittleDiv.removeChild(tittleDiv.lastElementChild);
+    wordDiv.removeChild(wordDiv.lastElementChild);
+    charDiv.removeChild(charDiv.lastElementChild);
+}
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -62,4 +68,12 @@ button.addEventListener('click', () => {
         }
         body.classList.add(backgroudImage)
     })
+    console.log (isQuoted);
+    if (isQuoted){
+        removeQuotes ();
+        requestApi ();
+    } else {
+        requestApi ();
+        isQuoted = true;
+    }
 })
